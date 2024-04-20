@@ -1,0 +1,27 @@
+#cloud-config
+hostname: rancher01
+
+rancher:
+  # environment:
+  #   EXTRA_CMDLINE: /init
+  network:
+    interfaces:
+      eth*:
+        dhcp: false
+      eth0:
+        address: 10.20.0.20/24
+        gateway: 10.20.0.1
+    dns:
+      nameservers:
+        - 10.20.0.1
+  services:
+    console:
+      environment:
+        TZ: Europe/Copenhagen
+  state:
+    dev: LABEL=RANCHER_STATE
+    wait: true
+
+ssh_authorized_keys:
+  - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCwsmDCLBa0oU3JEEvyYG6GhKdaY5ZQvn6T3d4EsIdj8g+oqM1t+MO6zMn1hNbJQU3SUc0WDSzuJHL+nKmImjBiYqYMKUZ3o73bzpKiy94v6+m5L8KNbpf0bEVeletsr5r/2pxI1VEpMH9BHeDPKTTDkaQu1+INsSvNW0FfnwEsxiXilhN8esusv6dISmTtQ9Mko0AbutF6RWntiBPq391PhmtUtJqsC740C+UZZCAyuw9p6kq9MXQaaug+IzMxQ/MKSICMjAp49W0o5Tw9zDK2YOzWlx/Jv/Euiz6YDgv0mZFw+EO8MLIgtmP+uPyTFDysldlEtxWJRZzqECOiOSVBGRKB6RvkH1Uazs0uhz8Dg6i/LnOgCK9eZiaKMsRyeFEJ0QbB/VsgOVCimpXDAWBjk6iEnvZwsRaFpEZZFO5VJ1bpYWv/q0gGyyZQICtkngXjqDWgI27+QEAIacD79Io/JdktpIE0opnWwAbFgsdhAdwmn1SZBWCiJNbVQku6ZN0= mikkel@NHORN-BLADE"
+  - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnV54BxF65k0qZvDAK7AXp0fy7A6nxinxuKoby6WGfn5dN0WJHzs8T7tjzs8EhlWWXBu4Sy/AK37M21PmtcGiJDHtf96/eDRSsCGTOyDr1d/z8xJqqPG6f1v2DBVMoHqZRuKao1redQf13LmT9tudUG/nOo1YRZz5RZzzMwUZWwBAmkNkz9PA9H7mc4wgcClJ2+jhi758Fc4TZg8BNZ5jyWd8auXuX6cc/BmQBJjDheB6KR6MsmSy//+CjJI2eXqfVRBz+HE5V2V8ImC572Y8AALBoMPiHor5gvPd34mRFRs7fpESQtLU6epW4BcKNFT0AFTE4V7xnxhNqHMmkSDW1 root@pve01"
