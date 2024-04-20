@@ -4,6 +4,8 @@ hostname: rancher01
 rancher:
   # environment:
   #   EXTRA_CMDLINE: /init
+  docker:
+    tls: true
   network:
     interfaces:
       eth*:
@@ -13,7 +15,11 @@ rancher:
         gateway: 10.20.0.1
     dns:
       nameservers:
-        - 10.20.0.1
+      - 8.8.8.8
+      - 8.8.4.4
+    #dns:
+    #  nameservers:
+    #    - 10.20.0.1
   services:
     console:
       environment:
