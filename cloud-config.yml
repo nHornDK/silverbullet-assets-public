@@ -1,5 +1,5 @@
 #cloud-config
-hostname: rancher01
+hostname: rancher
 
 rancher:
   # environment:
@@ -15,8 +15,7 @@ rancher:
         gateway: 10.20.0.1
     dns:
       nameservers:
-      - 8.8.8.8
-      - 8.8.4.4
+      - 10.20.0.1
     #dns:
     #  nameservers:
     #    - 10.20.0.1
