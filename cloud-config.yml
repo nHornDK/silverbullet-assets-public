@@ -15,7 +15,7 @@ rancher:
         gateway: 10.20.0.1
     dns:
       nameservers:
-      - 10.20.0.1
+        - 10.20.0.1
     #dns:
     #  nameservers:
     #    - 10.20.0.1
